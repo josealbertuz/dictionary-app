@@ -1,15 +1,20 @@
-import { styled } from "stitches.config"
-
-const Paragraph = styled('p', {
-  fontFamily: '$inter',
-  fontSize: '$heading-l',
-  lineHeight: '$heading-l'
-})
+import { Text } from "@components/Text";
+import { useTheme } from "next-themes";
 
 export default function Home() {
+
+  const {setTheme, resolvedTheme } = useTheme()
+
+  const onChangeTheme = () => {
+    const theme = resolvedTheme === 'light' ? 'dark' : 'light'
+
+    setTheme(theme)
+  }
+
   return (
     <>
-      <Paragraph>Hello world!</Paragraph>
+      <button onClick={onChangeTheme}>{resolvedTheme}</button>
+      <Text>Hello world!</Text>
     </>
-  )
+  );
 }

@@ -1,4 +1,5 @@
 import { createStitches } from "@stitches/react";
+import { NextFont } from "next/dist/compiled/@next/font";
 
 export const {
   styled,
@@ -59,8 +60,8 @@ export const {
       dark: "(prefers-color-scheme: dark)",
     },
     shadows: {
-       'elevation-100': '0px 5px 30px rgba(0, 0, 0, 0.1)' 
-    }
+      "elevation-100": "0px 5px 30px rgba(0, 0, 0, 0.1)",
+    },
   },
 });
 
@@ -70,6 +71,30 @@ export const darkTheme = createTheme({
     background: "$primary-800",
   },
   shadows: {
-    'elevation-100': '0px 5px 30px #A445ED'
-  }
+    "elevation-100": "0px 5px 30px #A445ED",
+  },
 });
+
+export type FontSizeTokens = keyof typeof theme.fontSizes
+export type FontTokens = keyof typeof theme.fonts
+
+
+export const generateGlobalStyles = ({
+  inter,
+  lora,
+  inconsolata,
+}: Record<FontTokens, NextFont>) =>
+  globalCss({
+    ":root": {
+      "--inter-font": `${inter.style.fontFamily}`,
+      "--inconsolata-font": `${inconsolata.style.fontFamily}`,
+      "--lora-font": `${lora.style.fontFamily}`,
+    },
+    "*": {
+      boxSizing: "border-box",
+      textDecoration: "none",
+      listStyleType: "none",
+      padding: 0,
+      margin: 0,
+    },
+  })();

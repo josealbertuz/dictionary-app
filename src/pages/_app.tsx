@@ -1,33 +1,25 @@
 import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import { Inter, Inconsolata, Lora } from "next/font/google";
-import { darkTheme, globalCss } from "stitches.config";
+import { darkTheme, generateGlobalStyles, globalCss } from "stitches.config";
 
 const inter = Inter({
   weight: ["400", "700"],
-  subsets: ['latin'],
-  variable: '--inter-font'
+  subsets: ["latin"],
+  variable: "--inter-font",
 });
 
 const inconsolata = Inconsolata({
   weight: ["400", "700"],
-  subsets: ['latin'],
-  variable: '--inconsolata-font'
+  subsets: ["latin"],
+  variable: "--inconsolata-font",
 });
 
 const lora = Lora({
   weight: ["400", "700"],
   style: ["italic", "normal"],
-  subsets: ['latin'],
-  variable: '--lora-font'
-});
-
-const globalStyles = globalCss({
-  ':root': {
-    '--inter-font': `${inter.style.fontFamily}`,
-    '--inconsolata-font': `${inconsolata.style.fontFamily}`,
-    '--lora-font': `${lora.style.fontFamily}`
-  }
+  subsets: ["latin"],
+  variable: "--lora-font",
 });
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -37,12 +29,10 @@ export default function App({ Component, pageProps }: AppProps) {
       defaultTheme="system"
       value={{
         dark: darkTheme.className,
-        light: 'light'
+        light: "light",
       }}
     >
-      {
-        globalStyles()
-      }
+      {generateGlobalStyles({ lora, inter, inconsolata })}
       <Component {...pageProps} />
     </ThemeProvider>
   );
