@@ -1,3 +1,4 @@
+import { Switch } from "@components/Switch";
 import { Text } from "@components/Text";
 import { useTheme } from "next-themes";
 
@@ -13,7 +14,7 @@ export default function Home() {
 
   return (
     <>
-      <button onClick={onChangeTheme}>{resolvedTheme}</button>
+      <Switch onClick={onChangeTheme} aria-label="change-theme" />
       <Text>Hello world!</Text>
     </>
   );

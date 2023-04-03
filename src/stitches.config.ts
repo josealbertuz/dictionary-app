@@ -63,6 +63,28 @@ export const {
       "elevation-100": "0px 5px 30px rgba(0, 0, 0, 0.1)",
     },
   },
+  utils: {
+    size: (value: string) => ({
+      width: value,
+      height: value,
+    }),
+    px: (value: string) => ({
+      paddingLeft: value,
+      paddingRight: value,
+    }),
+    py: (value: string) => ({
+      paddingTop: value,
+      paddingBottom: value,
+    }),
+    mx: (value: string) => ({
+      marginLeft: value,
+      marginRight: value,
+    }),
+    my: (value: string) => ({
+      marginTop: value,
+      marginBottom: value,
+    }),
+  }
 });
 
 export const darkTheme = createTheme({
