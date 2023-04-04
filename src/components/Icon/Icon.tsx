@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react'
-import { ColorTokens, styled, theme } from 'stitches.config'
+import { ColorTokens, SizesTokens, styled, theme } from 'stitches.config'
 import { IconName } from './iconNames'
 
 const color = Object.keys(theme.colors).reduce((acc, cv) => ({
@@ -9,12 +9,21 @@ const color = Object.keys(theme.colors).reduce((acc, cv) => ({
   }
 }), {} as Record<ColorTokens, {stroke: `$${ColorTokens}`}>)
 
+const size = Object.keys(theme.sizes).reduce((acc, cv) => ({
+  ...acc,
+  [cv]: {
+    size: `$${cv}`
+  }
+}), {} as Record<SizesTokens, {size: `$${SizesTokens}`}>)
+
 const IconRoot = styled('svg', {
   variants: {
-    color
+    color,
+    size
   },
   defaultVariants: {
-    color: 'primary-400'
+    color: 'primary-400',
+    size: '5'
   }
 })
 
@@ -22,10 +31,10 @@ export type IconProps = ComponentProps<typeof IconRoot> & {
   name: IconName
 }
 
-export const Icon = ({name, color, ...props}: IconProps) => {
+export const Icon = ({name, ...props}: IconProps) => {
   
   return (
-    <IconRoot color={color} {...props} role="presentation">
+    <IconRoot {...props} role="presentation">
       <use href={`/icon-sprite.svg#${name}`} />
     </IconRoot>
   )
