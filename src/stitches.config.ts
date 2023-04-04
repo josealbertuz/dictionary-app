@@ -119,4 +119,8 @@ export const generateGlobalStyles = ({
       padding: 0,
       margin: 0,
     },
+    '#__next': {
+      maxWidth: '737px',
+      margin: '0 auto'
+    }
   })();
