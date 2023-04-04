@@ -20,14 +20,12 @@ const IconRoot = styled('svg', {
 
 export type IconProps = ComponentProps<typeof IconRoot> & {
   name: IconName
-  width?: string
-  height?: string
 }
 
-export const Icon = ({name, color, height = "20", width = "20", ...props}: IconProps) => {
+export const Icon = ({name, color, ...props}: IconProps) => {
   
   return (
-    <IconRoot color={color} css={{width, height}}  {...props} role="presentation">
+    <IconRoot color={color} {...props} role="presentation">
       <use href={`/icon-sprite.svg#${name}`} />
     </IconRoot>
   )
