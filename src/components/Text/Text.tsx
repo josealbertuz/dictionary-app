@@ -20,6 +20,7 @@ export const Text = styled("span", {
   margin: 0,
   fontVariantNumeric: "tabular-nums",
   display: "inline-block",
+  fontFamily: 'inherit',
   variants: {
     size,
     color: {
@@ -37,6 +38,17 @@ export const Text = styled("span", {
       bold: {
         fontWeight: "$bold",
       },
+    },
+    font: {
+      lora: {
+        fontFamily: '$lora'
+      },
+      inter: {
+        fontFamily: '$inter'
+      },
+      inconsolata: {
+        fontFamily: '$inconsolata'
+      }
     },
     align: {
       left: {
