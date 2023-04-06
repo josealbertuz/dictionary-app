@@ -2,6 +2,7 @@
 // You can update it by running `yarn generate-icons-sprite`
 
 export const ICON_NAMES = [
+  'play',
   'logo',
   'icon-search',
   'icon-new-window',
