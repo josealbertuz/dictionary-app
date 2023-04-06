@@ -23,7 +23,7 @@ export const FontSelectTrigger = styled(RadixSelect.Trigger, {
   lineHeight: '$body-m',
   fontWeight: '$bold',
   width: '100%',
-  color: 'black'
+  color: '$text-primary'
 })
 
 export const FontSelectIcon = styled(RadixSelect.Icon, {
