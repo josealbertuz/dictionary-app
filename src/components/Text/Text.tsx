@@ -30,6 +30,9 @@ export const Text = styled("span", {
       secondary: {
         color: "$text-secondary",
       },
+      error: {
+        color: '$error'
+      }
     },
     weight: {
       regular: {

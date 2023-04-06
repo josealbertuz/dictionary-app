@@ -18,6 +18,7 @@ export const { styled, css, getCssText, config, globalCss, theme, keyframes, cre
         'text-primary': '$primary-600',
         'text-secondary': '$primary-400',
         background: '$primary-100',
+        inputBackground: '$primary-200',
 
         //accent
         accent: '#A445ED',
@@ -96,6 +97,7 @@ export const { styled, css, getCssText, config, globalCss, theme, keyframes, cre
       },
       shadows: {
         'elevation-100': '0px 5px 30px rgba(0, 0, 0, 0.1)',
+        'error': '0px 0px 1px 2px #FF5252'
       },
     },
     utils: {
@@ -126,6 +128,7 @@ export const darkTheme = createTheme({
   colors: {
     'text-primary': '$primary-100',
     background: '$primary-800',
+    inputBackground: '$primary-700',
   },
   shadows: {
     'elevation-100': '0px 5px 30px #A445ED',
